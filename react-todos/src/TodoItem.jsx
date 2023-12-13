@@ -4,16 +4,17 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
-import DeleteIcon from "@mui/icons-material/Delete";
+import CommentIcon from "@mui/icons-material/Comment";
 
-export default function TodoItem({ todo, removeTodo, checkBox }) {
-  const labelId = `checkbox-list-label-${todo.id}`;
+export default function TodoItem({ todos }) {
+  const labelId = "todos";
 
   return (
     <ListItem
+      key={todos.id}
       secondaryAction={
-        <IconButton edge="end" aria-label="comments" onClick={removeTodo}>
-          <DeleteIcon />
+        <IconButton edge="end" aria-label="comments">
+          <CommentIcon />
         </IconButton>
       }
       disablePadding
@@ -22,14 +23,13 @@ export default function TodoItem({ todo, removeTodo, checkBox }) {
         <ListItemIcon>
           <Checkbox
             edge="start"
-            checked={todo.completed}
+            checked={todos.completed}
             tabIndex={-1}
-            onClick={checkBox}
             disableRipple
             inputProps={{ "aria-labelledby": labelId }}
           />
         </ListItemIcon>
-        <ListItemText id={labelId} primary={todo.text} />
+        <ListItemText id={labelId} primary={todos.task} />
       </ListItemButton>
     </ListItem>
   );

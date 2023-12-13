@@ -1,12 +1,12 @@
 import "./App.css";
 import CssBaseline from "@mui/material/CssBaseline";
-import TodoList from "./TodoList";
+import TodoCard from "./TodoCard";
 
 function App() {
   return (
     <>
       <CssBaseline />
-      <TodoList />
+      <TodoCard />
     </>
   );
 }
